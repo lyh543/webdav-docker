@@ -21,8 +21,8 @@ docker run -d \
   -p 8080:80 \
   -e WEBDAV_USERNAME=admin \
   -e WEBDAV_PASSWORD=admin123 \
-  -e PUID=1000 \
-  -e PGID=1000 \
+  -e PUID=$UID \
+  -e PGID=$GID \
   -e PORT=80 \
   -v $(pwd)/data:/var/www/webdav \
   webdav
