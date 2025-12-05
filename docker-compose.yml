@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  webdav:
+    build: .
+    image: webdav
+    container_name: webdav
+    ports:
+      - "8080:80"
+    environment:
+      - WEBDAV_USERNAME=admin
+      - WEBDAV_PASSWORD=admin123
+      - PUID=1000
+      - PGID=1000
+      - PORT=80
+    volumes:
+      - ./data:/var/www/webdav
+    restart: unless-stopped
