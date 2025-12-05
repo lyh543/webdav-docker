@@ -6,7 +6,7 @@ English | [简体中文](https://github.com/lyh543/webdav-docker/blob/master/REA
 ![Docker Image Size](https://img.shields.io/docker/image-size/lyh543/webdav/latest?label=Image%20Size&color=green)
 ![Docker Pulls](https://img.shields.io/docker/pulls/lyh543/webdav?label=Pulls&color=orange)
 
-A lightweight WebDAV server based on Nginx.
+A lightweight WebDAV server based on Nginx, support specifying running user and group id.
 
 ## Quick Start
 

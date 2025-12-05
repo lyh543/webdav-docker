@@ -6,7 +6,7 @@
 ![Docker Image Size](https://img.shields.io/docker/image-size/lyh543/webdav/latest?label=Image%20Size&color=green)
 ![Docker Pulls](https://img.shields.io/docker/pulls/lyh543/webdav?label=Pulls&color=orange)
 
-基于 Nginx 的轻量级 WebDAV 服务器。
+基于 Nginx 的轻量级 WebDAV 服务器，支持指定运行用户和组 ID。
 
 ## 快速开始
 
