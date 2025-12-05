@@ -1,19 +1,24 @@
-# WebDAV Docker 镜像
+# WebDAV Docker Image
 
-基于 Nginx 的轻量级 WebDAV 服务器。
+English | [简体中文](https://github.com/lyh543/webdav-docker/blob/master/README_cn.md) | [Docker Hub](https://hub.docker.com/r/lyh543/webdav)
 
+[![Docker Image Version](https://img.shields.io/docker/v/lyh543/webdav/latest?label=lyh543/webdav&color=blue)](https://hub.docker.com/r/lyh543/webdav)
+![Docker Image Size](https://img.shields.io/docker/image-size/lyh543/webdav/latest?label=Image%20Size&color=green)
+![Docker Pulls](https://img.shields.io/docker/pulls/lyh543/webdav?label=Pulls&color=orange)
 
-## 快速开始
+A lightweight WebDAV server based on Nginx.
 
-### 使用 Docker 命令
+## Quick Start
 
-构建镜像：
+### Using Docker Command
+
+Build the image:
 
 ```bash
 docker build -t webdav .
 ```
 
-运行容器：
+Run the container:
 
 ```bash
 docker run -d \
@@ -28,61 +33,61 @@ docker run -d \
   webdav
 ```
 
-## 配置选项
+## Configuration Options
 
-### 环境变量
+### Environment Variables
 
-- `WEBDAV_USERNAME`: WebDAV 登录用户名（默认：admin）
-- `WEBDAV_PASSWORD`: WebDAV 登录密码（默认：admin）
-- `PUID`: 运行 nginx 进程的用户 ID（默认：1000）
-- `PGID`: 运行 nginx 进程的组 ID（默认：1000）
-- `PORT`: 容器内部监听端口（默认：80）
+- `WEBDAV_USERNAME`: WebDAV login username (default: admin)
+- `WEBDAV_PASSWORD`: WebDAV login password (default: admin)
+- `PUID`: User ID for nginx process (default: 1000)
+- `PGID`: Group ID for nginx process (default: 1000)
+- `PORT`: Internal container listening port (default: 80)
 
-### 端口
+### Ports
 
-- 容器内部端口：`80`（可通过 `PORT` 环境变量修改）
-- 映射到主机端口：`8080`（可在 docker-compose.yml 或 -p 参数中修改）
+- Internal container port: `80` (configurable via `PORT` environment variable)
+- Host port mapping: `8080` (configurable in docker-compose.yml or -p parameter)
 
-### 数据卷
+### Volumes
 
-- `/var/www/webdav`: WebDAV 数据存储目录
+- `/var/www/webdav`: WebDAV data storage directory
 
-## 目录结构
+## Directory Structure
 
 ```
 webdav/
-├── Dockerfile           # Docker 镜像定义
-├── docker-compose.yml   # Docker Compose 配置
-├── nginx.conf          # Nginx 配置
-├── entrypoint.sh       # 启动脚本
-├── data/               # WebDAV 数据目录（自动创建）
-└── README.md           # 说明文档
+├── Dockerfile           # Docker image definition
+├── docker-compose.yml   # Docker Compose configuration
+├── nginx.conf          # Nginx configuration
+├── entrypoint.sh       # Startup script
+├── data/               # WebDAV data directory (auto-created)
+└── README.md           # Documentation
 ```
 
-## 使用技巧
+## Usage Tips
 
-### 设置正确的 UID/GID
+### Setting Correct UID/GID
 
-为了避免文件权限问题，建议设置 `PUID` 和 `PGID` 为你的宿主机用户 ID：
+To avoid file permission issues, it's recommended to set `PUID` and `PGID` to your host user ID:
 
 ```bash
-# 查看当前用户的 UID 和 GID
+# Check your current user's UID and GID
 id
 
-# 在 docker-compose.yml 中设置
+# Set in docker-compose.yml
 environment:
-  - PUID=1000  # 替换为你的 UID
-  - PGID=1000  # 替换为你的 GID
+  - PUID=1000  # Replace with your UID
+  - PGID=1000  # Replace with your GID
 ```
 
-### 自定义端口
+### Custom Port
 
-如需修改容器内部端口（例如在同一主机运行多个实例）：
+To modify the internal container port (e.g., running multiple instances on the same host):
 
 ```yaml
 # docker-compose.yml
 ports:
-  - "8080:8080"  # 映射到自定义端口
+  - "8080:8080"  # Map to custom port
 environment:
-  - PORT=8080    # 容器内部监听 8080
+  - PORT=8080    # Container listens on 8080
 ```
