@@ -3,7 +3,7 @@ version: '3.8'
 services:
   webdav:
     build: .
-    image: webdav
+    image: lyh543/webdav
     container_name: webdav
     ports:
       - "8080:80"

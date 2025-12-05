@@ -30,7 +30,7 @@ docker run -d \
   -e PGID=$GID \
   -e PORT=80 \
   -v $(pwd)/data:/var/www/webdav \
-  webdav
+  lyh543/webdav
 ```
 
 ## 配置选项
