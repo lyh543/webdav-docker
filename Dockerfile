@@ -4,6 +4,7 @@ FROM alpine:3.19
 RUN apk add --no-cache \
     nginx \
     nginx-mod-http-dav-ext \
+    nginx-mod-http-lua \
     apache2-utils \
     && mkdir -p /var/www/webdav \
     && mkdir -p /run/nginx
